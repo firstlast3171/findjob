@@ -52,4 +52,10 @@ class User extends Authenticatable
     public function listings(){
         return $this->hasMany(Listing::class,"user_id");
     }
+
+    public function scopeFindwithemail($query,array $filters){
+        if($filters["email"] ?? false){
+            $query->where("email",request("email"));
+        }
+    }
 }

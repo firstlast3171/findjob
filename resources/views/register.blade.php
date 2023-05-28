@@ -12,8 +12,8 @@
           @csrf
      <div class="from-group my-4">
           <label for="email">Email</label>
-          <input type="email" class="form-control" placeholder="Email" name="email" id="email" {{old("email","")}}>
-          @error('eamil')
+          <input type="email" class="form-control" placeholder="Email" name="email" id="email" value="{{old("email","")}}">
+          @error('email')
           <p class="text-danger">
                {{$message}}
            </p>

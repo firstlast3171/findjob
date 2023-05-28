@@ -24,7 +24,7 @@
      
      <div class="from-group my-4">
           <label for="logo">Company Logo</label>
-          <input type="file" class="form-control" placeholder="Job Tags(Example: PHP,Laravel,React)" name="logo" id="logo" accept="image/png, image/gif, image/jpeg, image/jpg, image/jfif">
+          <input type="file" class="form-control" placeholder="Job Logo" name="logo" id="logo" accept="image/png, image/gif, image/jpeg, image/jpg, image/jfif">
      </div>
 
      <div class="from-group my-4">

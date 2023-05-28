@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,17 @@ class UserController extends Controller
 
         $formField["password"] = bcrypt($formField["password"]);
         $formField["role_id"] = 3;
+        $user = User::latest()->findwithemail(request(["email"]))->get();
+        $havedEmail = "";
+        foreach($user as $us){
+            $havedEmail = $us->email;
+        }
+
       
+       if($havedEmail === $formField["email"]){
+        return redirect('/register')->withErrors(["email"=>"Email Already Taken"]);
+       }
+   
         $user = User::create($formField);
         auth()->login($user);
         return redirect("/")->with("message","Registered and Logined Successfully");

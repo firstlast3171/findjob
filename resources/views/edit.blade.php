@@ -7,7 +7,7 @@
      <div class="row border p-4">
           <h1 class="text-center">Update Job</h1>
           <div class="col-8 p-4 m-auto">
-     <form action="/listings/edit/{{$listing->id}}" method="post">
+     <form action="/listings/edit/{{$listing->id}}" method="post" enctype="multipart/form-data">
           @csrf
           @method('PUT')
      <div class="from-group my-4">
@@ -23,7 +23,7 @@
      
      <div class="from-group my-4">
           <label for="logo">Company Logo</label>
-          <input type="file" class="form-control" placeholder="Job Tags(Example: PHP,Laravel,React)" name="logo" id="logo" accept="image/png, image/gif, image/jpeg, image/jpg, image/jfif">
+          <input type="file" class="form-control" placeholder="Job Logo" name="logo" id="logo" accept="image/png, image/gif, image/jpeg, image/jpg, image/jfif">
           <img src="{{ $listing->image ? "/storage/".$listing->image : "/images/acme.png"}}" alt="No Image" style="max-width:250px; max-height:fit-content" class="border d-none d-lg-block">
      </div>
 
